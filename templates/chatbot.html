@@ -69,14 +69,17 @@
 {% block content %}
 <div class="chat-container">
     <div class="card flex-grow-1">
-        <div class="card-header bg-secondary text-white">AI Powered Chatbot</div>
+        <div class="card-header bg-secondary text-white" style="font-size: x-large;"><b>AI Powered Chatbot</b></div>
         {% if user.is_authenticated %}
-        <div class="card-header bg-secondary text-white"><b>Welcome, {{user.username}}</b> <a
-                style="color: turquoise; position:absolute; right: 20px;" href="logout">Logout</a></div>
+        <div class="card-header bg-secondary text-white" style="font-size: x-large;">Welcome, {{user.username}}
+            <a type="button" class="btn btn-secondary" style="color: turquoise; position:absolute; right: 1%;" href="logout">Logout</a>
+            <a type="button" href="/clear" class="btn btn-secondary" style="color: turquoise; position:absolute; right: 8%;">Clear Chat</a></div>
         {% else %}
-        <div class="card-header bg-secondary text-white"><a style="color: turquoise" href="login">Login</a> <a
-                style="color: turquoise; padding-left: 5px;" href="register">Register</a></div>
+        <div class="card-header bg-secondary text-white"><a type="button" style="color: turquoise" href="login" class="btn btn-secondary">Login</a> 
+            <a type="button" style="color: turquoise; padding-left: 5px;" href="register" class="btn btn-secondary">Register</a>
+            <a type="button" href="/clear" class="btn btn-secondary" style="color: turquoise; position:absolute; right: 1%;">Clear Chat</a></div>
         {% endif %}
+
         <div class="card-body messages-box">
 
             <ul class="list-unstyled messages-list">

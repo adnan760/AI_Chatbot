@@ -65,6 +65,16 @@ def login(request):
             return render(request, 'login.html', {'error_message': error_message})
     else:
         return render(request, 'login.html')
+    
+def clear_chat(request):
+    try:
+        us=Chat.objects.filter(user=request.user)
+        #us.update(message=None)
+        us.delete()
+        
+        return redirect('chatbot')
+    except:
+        return redirect('chatbot')
 
 def register(request):
     if request.method == 'POST':
